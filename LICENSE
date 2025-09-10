@@ -1,0 +1,8 @@
+## forcecrc32.py
+This has it's own original upstream license (GPLv3+)
+
+## All other source
+Choose whatever makes your own job easier integration wise.
+SPDX-License-Identifier: MIT OR Apache-2.0 OR ISC OR BSD-2-Clause OR GPL-2.0-or-later OR LGPL-2.0-or-later
+Karl Palsson <karl.palsson@marel.com> 2025
+
