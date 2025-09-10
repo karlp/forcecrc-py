@@ -33,8 +33,6 @@ def main(args: list[str]) -> str|None:
 		offset: int = int(args[1])
 	except ValueError:
 		return "Error: Invalid byte offset"
-	if offset < 0:
-		return "Error: Negative byte offset"
 	try:
 		if len(args[2]) != 8 or args[2].startswith(("+", "-")):
 			return "Error: Invalid new CRC-32 value"
@@ -65,6 +63,8 @@ def modify_file_crc32(path: str, offset: int, newcrc: int, printstatus: bool = F
 	with open(path, "r+b") as raf:
 		raf.seek(0, os.SEEK_END)
 		length: int = raf.tell()
+		if offset < 0:
+			offset = length + offset
 		if offset + 4 > length:
 			raise ValueError("Byte offset plus 4 exceeds file length")
 		
